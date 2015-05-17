@@ -16,7 +16,7 @@ import (
 
 func auth(session sessions.Session, r render.Render) {
 	if session.Get("user") == nil {
-		r.JSON(http.StatusUnauthorized, map[string]string{"msg": "You need to be logged to acess this part"})
+		r.JSON(http.StatusUnauthorized, map[string]string{"msg": "You need to be logged to access this part"})
 	}
 }
 
