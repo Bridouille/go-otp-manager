@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="OtpApp">
+	<head>
+		<title>Otp manager | Login</title>
+
+		<meta name="viewport" content="initial-scale=1" />
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" type="text/css" href="/css/login.css">
+
+		<!-- Angular Material Dependencies -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="/js/login.js"></script>
+	</head>
+	<body>
+		<div class="login-bg"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-lg-offset-4" id="login">
+				<md-content>
+			    	<md-toolbar class="text-center">
+			    		<h3>
+			    			<span>Please login </span>
+			    			<i class="fa fa-tasks"></i>
+				        </h3>
+			    	</md-toolbar>
+			    </md-content>
+				<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="center center">
+			    	<form action="/login" method="post">
+				    	<md-content layout-padding  layout-sm="column" class="col-xs-12">
+	                    <md-input-container class="col-xs-12">
+	                        <label>Username</label>
+	                        <input type="text" name="username" autocomplete="off">
+	                    </md-input-container>
+	                    </md-content>
+	                    <md-content layout-padding layout-sm="column" class="col-xs-12">
+	                        <md-input-container class="col-xs-12">
+	                            <label>Password</label>
+	                            <input type="password" name="password" autocomplete="off">
+	                        </md-input-container>
+	                    </md-content>
+	                    <md-content layout-padding layout-sm="column" class="col-xs-12 text-center">
+	                    	<md-button class="md-raised md-primary" >Login</md-button>
+	                    </md-content>
+                    </form>
+				</md-whiteframe>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

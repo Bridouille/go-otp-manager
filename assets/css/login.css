@@ -1,0 +1,28 @@
+.login-bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url('/img/login-bg.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
+#login h3 {
+  text-transform: uppercase;
+}
+
+md-input-container {
+  padding-bottom: 0px;
+}

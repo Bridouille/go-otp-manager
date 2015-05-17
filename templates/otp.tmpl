@@ -1,0 +1,118 @@
+<html lang="fr" ng-app="OtpApp">
+    <head>
+        <title>Otp Manager | View</title>
+        <meta name="viewport" content="initial-scale=1" />
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="/css/otp.css">
+
+         <!-- Angular Material Dependencies -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.js"></script>
+        <script src="/js/otp.js"></script>
+    </head>
+    <body ng-controller="OtpCtrl">
+        <md-toolbar layout="row">
+             <div class="md-toolbar-tools">
+                <md-button>
+                   <i class="fa fa-unlock-alt"></i>
+                   <span>OTP Manager</span>
+                </md-button>
+                <span flex></span>
+                <form action="/logout" method="post">
+                    <md-button class="md-raised md-warn">
+                      <span>Logout</span>
+                      <i class="fa fa-power-off"></i>
+                    </md-button>
+                </form>
+              </div>
+        </md-toolbar>
+
+        <div class="container-fluid mt" id="content">
+            <div class="row">
+                <div class="col-lg-8">
+                    <md-whiteframe class="md-whiteframe-z1" layout="column">
+                    <div class="page-header col-lg-12">
+                        <h1>My One Time Password</h1>
+                        <md-input-container id="searchbar" class="pull-right col-xs-3">
+                            <label><i class="fa fa-search"></i> Search</label>
+                            <input ng-model="search">
+                        </md-input-container>
+                    </div>
+                    <div class="col-lg-12">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Account</th>
+                                    <th>TOTP</th>
+                                    <th>Validity</th>
+                                    <th>Seconds</th>
+                                    <th>Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="(idx, otp) in otps | filter : search" class="text-center">
+                                    <td>{{ otp.Name }}</td>
+                                    <td>{{ otp.Totp }}</td>
+                                    <td>
+                                        <div layout="row" layout-sm="column" layout-align="space-around">
+                                            <md-progress-circular md-mode="determinate" value="{{ otp.Percent }}"></md-progress-circular>
+                                        </div>
+                                    </td>
+                                    <td>{{ otp.Rest }}</td>
+                                    <td>
+                                        <md-button class="md-primary md-warn hide-print" aria-label="Remove item" ng-click="removeOtp(otp)">
+                                            <i class="fa fa-times"></i> Del
+                                        </md-button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </md-whiteframe>
+                </div>
+                <div class="col-lg-4">
+                    <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center">
+                        <div>
+                        <h2 class="text-center">Add an account</h2>
+                        <md-content layout-padding layout="column" layout-sm="column" class="col-xs-12">
+                            <md-input-container class="col-xs-12">
+                                <label>Account name</label>
+                                <input ng-model="newOtp.name">
+                            </md-input-container>
+                        </md-content>
+                        <md-content layout-padding layout="column" layout-sm="column" class="col-xs-12">
+                            <md-input-container class="col-xs-12">
+                                <label>Secret key</label>
+                                <input ng-model="newOtp.key">
+                            </md-input-container>
+                        </md-content>
+                        <md-content layout-padding layout="row" layout-sm="column" class="col-xs-6">
+                            <md-input-container flex class="col-xs-12">
+                                <label>Validity time (in seconds)</label>
+                                <input type="number" ng-model="newOtp.time">
+                            </md-input-container>
+                        </md-content>
+                        <md-content layout-padding layout="row" layout-sm="column" class="col-xs-6">
+                            <md-input-container flex class="col-xs-12">
+                                <label>Number of digits</label>
+                                <input type="number" ng-model="newOtp.digits">
+                            </md-input-container>
+                        </md-content>
+                        <div layout="row" layout-align="center center" class="col-xs-12 mt">
+                            <md-button class="md-primary md-hue-2 p" ng-click="addOtp(newOtp)"><i class="fa fa-user-plus"></i> Add</md-button>
+                        </div>
+                    </div>
+                    </md-whiteframe>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+{
+    "production" : {
+        "dbfile" : "./db/otp-manager.db",
+        "credentials" : {
+            "username" : "admin",
+            "password" : "admin"
+        },
+        "sessiontime" : 3600
+    },
+    "development" : {
+        "dbfile" : "./db/otp-manager.db",
+        "credentials" : {
+            "username" : "admin",
+            "password" : "admin"
+        },
+        "sessiontime" : 3600
+    }
+}

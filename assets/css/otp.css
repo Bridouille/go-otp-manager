@@ -1,0 +1,23 @@
+
+.ml	{ margin-left: 25px; }
+.mr	{ margin-right: 25px; }
+.mt	{ margin-top: 25px; }
+.mb	{ margin-bottom: 25px; }
+.pl	{ padding-left: 25px; }
+.pr	{ padding-right: 25px; }
+.pt	{ padding-top: 25px; }
+.pb	{ padding-bottom: 25px; }
+.m { margin: 15px; }
+.p { padding: 15px; }
+
+th {
+	text-align: center;
+}
+
+form {
+	margin: 0px;
+}
+
+.page-header > * {
+	display: inline-block;
+}
